@@ -19,7 +19,7 @@ import {
 import CIcon from "@coreui/icons-react";
 import Cookies from "universal-cookie";
 import { useHistory } from 'react-router-dom';
-import configData from "../../../config.json";
+// import configData from "../../../config.json";
 
 const Login = () => {
 
@@ -39,8 +39,8 @@ const Login = () => {
     setLoginError("");
     e.preventDefault();
 
-    const data = { username, password }
-    fetch(configData.API_URL + "/login", {
+    const data = { username, password_hash:password }
+    fetch("/user", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
